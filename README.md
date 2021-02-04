@@ -1,7 +1,7 @@
 # foody
 
 
-Introduction
+# Introduction
 Une base de données est un ensemble de tables (ou aussi relations - d'où le nom de base
 de données relationnelles), dont le contenu est la description d'entités (clients, produits,
 étudiants, matières, ...) ou d'associations (achat d'un produit par un client, note d'un
@@ -12,6 +12,6 @@ Nous devons utiliser ce qu'on appelle un Système de Gestion de Bases de
 Données (ou SGBD) pour gérer ces bases et faire toutes les opérations nécessaires sur
 celles-ci (création, insertion, modification, interrogation, suppression).
 
-Contexte du Projet :
+# Contexte du Projet :
 Soit le schéma de la base de données suivante, qui reprend les caractéristiques de la société Foody
 spécialisée en import-export d'aliments .
