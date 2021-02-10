@@ -128,6 +128,6 @@ CREATE TABLE DetailCommande
     FOREIGN KEY (RefProd) REFERENCES Produit(RefProd),
     PrixUnit INT NOT NULL,
     Qte INT NOT NULL,
-    Remise INT NOT NULL
+    Remise FLOAT NOT NULL
 );
 
