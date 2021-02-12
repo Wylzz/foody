@@ -127,7 +127,7 @@ FROM commande;
 
 # ////////////////////////////////////////////////////////////////
 
-SELECT COUNT(Nom)
+SELECT COUNT(Nom) AS Nombre_de_SalesManager
 FROM employe
 WHERE Fonction LIKE 'Sales Manager';
 
@@ -145,8 +145,8 @@ FROM produit
 WHERE CodeCateg = 2 AND NoFour LIKE '1'
    OR NoFour LIKE '18';
 
-SELECT COUNT(DISTINCT Pays) AS nbr_pays
-FROM client;
+SELECT COUNT(DISTINCT PaysLiv) AS nbr_pays
+FROM commande;
 
 SELECT COUNT(*)
 FROM commande
@@ -276,6 +276,7 @@ GROUP BY NomMess;
 
 # ////////////////////////////////////////////////////////////////
 
+SELECT * FROM detailcommande;
 
 SELECT *
 FROM employe
@@ -376,7 +377,19 @@ GROUP BY Societe;
 
 SELECT Societe, Count(*) as Nombre_de_Fournisseur FROM produit LEFT JOIN fournisseur f on produit.NoFour = f.NoFour
 WHERE Pays IN('UK', 'France', 'Germany')
-GROUP BY Societe
+GROUP BY Societe;
+
+SELECT CodeCli, COUNT(VilleLiv) FROM commande LEFT JOIN messager m on commande.NoMess = m.NoMess WHERE NomMess = 'United Package' AND PaysLiv IN ( 'France')GROUP BY CodeCli;
+
+SELECT NomProd, p.PrixUnit, detailcommande.PrixUnit, QteParUnit FROM detailcommande INNER JOIN produit p on detailcommande.RefProd = p.RefProd
+WHERE NomProd NOT IN ('Chai', 'Tofu', 'Povlova', 'Carnarvon Shouyu');
+
+SELECT * FROM client
 
 
 
+SELECT Societe, COUNT(*) AS Nombre FROM commande LEFT JOIN client c on commande.CodeCli = c.CodeCli WHERE pays IN ("France", "UK") GROUP BY Societe
+
+SELECT count(Societe), PrixUnit FROM produit LEFT JOIN fournisseur f on produit.NoFour = f.NoFour GROUP BY Societe
+
+SELECT * FROM commande
